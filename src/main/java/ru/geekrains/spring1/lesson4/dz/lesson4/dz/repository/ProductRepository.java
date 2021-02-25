@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findAllByCostGreaterThanOrderByCostAsc(int cost);
-    List<Product> findAllByCostLessThan(int cost);
+    List<Product> findAllByCostLessThanOrderByCostDesc(int cost);
 }

@@ -26,4 +26,11 @@ public class ProductController {
         List<Product> products = productRepository.findAllByCostGreaterThanOrderByCostAsc(1);
         return products;
     }
+
+    @GetMapping("/max")
+    @ResponseBody
+    public List<Product> findMax(){
+        List<Product> products = productRepository.findAllByCostLessThanOrderByCostDesc(20);
+        return products;
+    }
 }
