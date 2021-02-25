@@ -2,6 +2,7 @@ package ru.geekrains.spring1.lesson4.dz.lesson4.dz.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,5 +33,11 @@ public class ProductController {
     public List<Product> findMax(){
         List<Product> products = productRepository.findAllByCostLessThanOrderByCostDesc(20);
         return products;
+    }
+
+    @GetMapping("/products")
+    public String findAll(Model model){
+        model.addAttribute("products", productRepository.findAll());
+        return "products";
     }
 }
